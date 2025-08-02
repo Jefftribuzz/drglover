@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Google Ads - Dr. Glover - Julho 2025</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+        .metric-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-7xl">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-bold gradient-text mb-4">Relatório Google Ads</h1>
+            <h2 class="text-3xl font-semibold text-white mb-2">Dr. Glover - Julho 2025</h2>
+            <p class="text-xl text-white opacity-90">Análise Completa de Performance e Tráfego</p>
+        </div>
+
+        <!-- Resumo Executivo -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <div class="metric-card rounded-2xl p-6 shadow-xl">
+                <div class="stat">
+                    <div class="stat-title text-gray-600">Total de Impressões</div>
+                    <div class="stat-value text-3xl text-blue-600">4,628</div>
+                    <div class="stat-desc text-green-600">Alcance total da campanha</div>
+                </div>
+            </div>
+            <div class="metric-card rounded-2xl p-6 shadow-xl">
+                <div class="stat">
+                    <div class="stat-title text-gray-600">Total de Cliques</div>
+                    <div class="stat-value text-3xl text-green-600">250</div>
+                    <div class="stat-desc text-blue-600">CTR médio: 5.20%</div>
+                </div>
+            </div>
+            <div class="metric-card rounded-2xl p-6 shadow-xl">
+                <div class="stat">
+                    <div class="stat-title text-gray-600">Contatos WhatsApp</div>
+                    <div class="stat-value text-3xl text-orange-600">36</div>
+                    <div class="stat-desc text-purple-600">Taxa: 14.4%</div>
+                </div>
+            </div>
+            <div class="metric-card rounded-2xl p-6 shadow-xl">
+                <div class="stat">
+                    <div class="stat-title text-gray-600">Investimento Total</div>
+                    <div class="stat-value text-3xl text-red-600">R$ 929.38</div>
+                    <div class="stat-desc text-gray-600">CPC médio: R$ 4.10</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bloco 1: Métricas de Tráfego -->
+        <div class="metric-card rounded-2xl p-8 shadow-xl mb-12">
+            <h3 class="text-3xl font-bold text-gray-800 mb-8 text-center">📊 Bloco 1: Métricas de Tráfego</h3>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Gráfico de Evolução do Tráfego -->
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <h4 class="text-xl font-semibold text-gray-700 mb-4">Evolução Semanal do Tráfego</h4>
+                    <div class="chart-container">
+                        <canvas id="trafegoChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Insights de Tráfego -->
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <h4 class="text-xl font-semibold text-gray-700 mb-4">Principais Insights</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Pico de impressões na semana 11-17 com <strong>1,122</strong> impressões</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2">📈</span>
+                            <span>Melhor performance de cliques: <strong>11 a 17</strong> com 69 cliques</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-orange-500 mr-2">🎯</span>
+                            <span>Taxa de conversão clique → pageview: <strong>63.6%</strong></span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-500 mr-2">💬</span>
+                            <span>Taxa de conversão pageview → WhatsApp: <strong>22.6%</strong></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Funil de Conversão -->
+            <div class="bg-white rounded-xl p-6 shadow-lg mt-8">
+                <h4 class="text-xl font-semibold text-gray-700 mb-4">Funil de Conversão</h4>
+                <div class="chart-container">
+                    <canvas id="funilChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bloco 2: Métricas de Performance/Investimento -->
+        <div class="metric-card rounded-2xl p-8 shadow-xl mb-12">
+            <h3 class="text-3xl font-bold text-gray-800 mb-8 text-center">💰 Bloco 2: Métricas de Performance e Investimento</h3>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Gráfico CPC vs CPA -->
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <h4 class="text-xl font-semibold text-gray-700 mb-4">Evolução CPC vs CPA</h4>
+                    <div class="chart-container">
+                        <canvas id="cpcCpaChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Gráfico CTR -->
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <h4 class="text-xl font-semibold text-gray-700 mb-4">Taxa de Cliques (CTR) por Semana</h4>
+                    <div class="chart-container">
+                        <canvas id="ctrChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Investimento e Insights -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <h4 class="text-xl font-semibold text-gray-700 mb-4">Investimento por Semana</h4>
+                    <div class="chart-container">
+                        <canvas id="investimentoChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <h4 class="text-xl font-semibold text-gray-700 mb-4">Insights de Performance</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">🏆</span>
+                            <span>Melhor CTR: <strong>04 a 10</strong> com 6.21%</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2">💎</span>
+                            <span>Melhor CPC: <strong>25 a 31</strong> com R$ 3.18</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-500 mr-2">📊</span>
+                            <span>CPA médio: <strong>R$ 28.06</strong></span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-orange-500 mr-2">💰</span>
+                            <span>Custo por contato WhatsApp: <strong>R$ 25.82</strong></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Análise de Tendências -->
+        <div class="metric-card rounded-2xl p-8 shadow-xl">
+            <h3 class="text-3xl font-bold text-gray-800 mb-8 text-center">📈 Análise de Tendências e Recomendações</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <h4 class="text-xl font-semibold text-gray-700 mb-4">Tendências Identificadas</h4>
+                    <div class="space-y-4">
+                        <div class="alert alert-success">
+                            <span>📈 Impressões com tendência crescente</span>
+                        </div>
+                        <div class="alert alert-info">
+                            <span>🎯 CTR com tendência crescente</span>
+                        </div>
+                        <div class="alert alert-warning">
+                            <span>💰 CPC com tendência decrescente</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <h4 class="text-xl font-semibold text-gray-700 mb-4">Recomendações</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>CTR acima da média do mercado - manter estratégia atual</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-500 mr-2">🔍</span>
+                            <span>Investigar fatores da variação de CTR entre semanas</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-orange-500 mr-2">🎯</span>
+                            <span>Otimizar landing pages para melhorar conversão</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-500 mr-2">💡</span>
+                            <span>Excelente taxa de conversão para WhatsApp - expandir estratégia</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dados para os gráficos
+        const semanas = ['01 a 03', '04 a 10', '11 a 17', '18 a 24', '25 a 31'];
+        const impressoes = [485, 869, 1122, 1102, 1050];
+        const cliques = [16, 54, 69, 52, 59];
+        const pageviews = [10, 37, 47, 38, 27];
+        const whatsapp = [3, 11, 10, 6, 6];
+        const cpc = [6.23, 3.8, 3.4, 3.89, 3.18];
+        const ctr = [3.3, 6.21, 6.15, 4.72, 5.62];
+        const cpa = [33.21, 18.64, 23.48, 33.73, 31.24];
+        const investimento = [99.68, 205.2, 234.6, 202.28, 187.62];
+
+        // Gráfico de Tráfego
+        const trafegoCtx = document.getElementById('trafegoChart').getContext('2d');
+        new Chart(trafegoCtx, {
+            type: 'line',
+            data: {
+                labels: semanas,
+                datasets: [{
+                    label: 'Impressões',
+                    data: impressoes,
+                    borderColor: '#3498db',
+                    backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                    tension: 0.4
+                }, {
+                    label: 'Cliques',
+                    data: cliques,
+                    borderColor: '#e74c3c',
+                    backgroundColor: 'rgba(231, 76, 60, 0.1)',
+                    tension: 0.4
+                }, {
+                    label: 'Pageviews',
+                    data: pageviews,
+                    borderColor: '#2ecc71',
+                    backgroundColor: 'rgba(46, 204, 113, 0.1)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Gráfico Funil
+        const funilCtx = document.getElementById('funilChart').getContext('2d');
+        new Chart(funilCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Impressões', 'Cliques', 'Pageviews', 'WhatsApp'],
+                datasets: [{
+                    label: 'Quantidade',
+                    data: [4628, 250, 159, 36],
+                    backgroundColor: ['#3498db', '#e74c3c', '#2ecc71', '#f39c12'],
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Gráfico CPC vs CPA
+        const cpcCpaCtx = document.getElementById('cpcCpaChart').getContext('2d');
+        new Chart(cpcCpaCtx, {
+            type: 'line',
+            data: {
+                labels: semanas,
+                datasets: [{
+                    label: 'CPC (R$)',
+                    data: cpc,
+                    borderColor: '#9b59b6',
+                    backgroundColor: 'rgba(155, 89, 182, 0.1)',
+                    yAxisID: 'y'
+                }, {
+                    label: 'CPA (R$)',
+                    data: cpa,
+                    borderColor: '#e67e22',
+                    backgroundColor: 'rgba(230, 126, 34, 0.1)',
+                    yAxisID: 'y1'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left'
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        grid: {
+                            drawOnChartArea: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // Gráfico CTR
+        const ctrCtx = document.getElementById('ctrChart').getContext('2d');
+        new Chart(ctrCtx, {
+            type: 'bar',
+            data: {
+                labels: semanas,
+                datasets: [{
+                    label: 'CTR (%)',
+                    data: ctr,
+                    backgroundColor: '#1abc9c',
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Gráfico Investimento
+        const investimentoCtx = document.getElementById('investimentoChart').getContext('2d');
+        new Chart(investimentoCtx, {
+            type: 'bar',
+            data: {
+                labels: semanas,
+                datasets: [{
+                    label: 'Investimento (R$)',
+                    data: investimento,
+                    backgroundColor: '#34495e',
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
